@@ -33,6 +33,6 @@ public class Q08_RearrangeElements {
         System.out.println(Arrays.toString(rearrangeElements(arr)));
 
         int[] arr2 = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8};
-        System.out.println(Arrays.toString(rearrangeElements2(arr2)));
+//        System.out.println(Arrays.toString(rearrangeElements2(arr2)));
     }
 }
