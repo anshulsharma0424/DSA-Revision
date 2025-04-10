@@ -35,7 +35,6 @@ public class Q01_BasicManipulations {
         return head;
     }
 
-
     // Insert in the beginning
     public static Node insertAtBeginning(Node head, int val) {
         if (head == null) {
@@ -154,6 +153,37 @@ public class Q01_BasicManipulations {
         return head;
     }
 
+    // Middle of a Linked List
+    public static int middleValue(Node head){
+        if (head == null) return 0;
+
+        Node fast = head;
+        Node slow = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.val;
+    }
+
+    // Reverse the LinkedList
+    public static Node reverseList(Node head) {
+        if (head == null) return null;
+
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+
+        while (curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
 
     public static void main(String[] args) {
         int[] arr = {2,3,4,5};
@@ -187,9 +217,19 @@ public class Q01_BasicManipulations {
         printLinkedList(headNode); // 2,3,4,77,5
         System.out.println();
 
+        System.out.println(middleValue(headNode)); // 4
+
         headNode = deleteNodeFromPosition(headNode, 1);
         printLinkedList(headNode); // 3,4,77,5
         System.out.println();
+
+        System.out.println(middleValue(headNode)); // 4
+
+        headNode = reverseList(headNode);
+        printLinkedList(headNode); // 5,77,4,3
+        System.out.println();
+
+        
 
     }
 }
