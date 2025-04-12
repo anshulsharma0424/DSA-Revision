@@ -2,16 +2,21 @@ package Trees;
 
 public class Q06_DiameterOfTree {
 
+    public static int getHeight(Node root){
+        if (root == null) return 0;
+        return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+    }
+
     public static int diameterOfTree(Node root) {
         if (root == null) return 0;
 
-        int leftHeight = Q02_HeightOfBinaryTree.getHeight(root.left);
-        int rightHeight = Q02_HeightOfBinaryTree.getHeight(root.right);
+        int leftHeight = getHeight(root.left);
+        int rightHeight = getHeight(root.right);
 
         int leftDiameter = diameterOfTree(root.left);
         int rightDiameter = diameterOfTree(root.right);
 
-        return Math.max(leftHeight+rightHeight, Math.max(leftDiameter,rightDiameter));
+        return Math.max(leftHeight + rightHeight, Math.max(leftDiameter,rightDiameter));
     }
 
     public static void main(String[] args) {
@@ -28,6 +33,7 @@ public class Q06_DiameterOfTree {
         root.left.right = new Node(7);
         root.right.left = new Node(9);
 
+        System.out.println(diameterOfTree(root));
 
     }
 }

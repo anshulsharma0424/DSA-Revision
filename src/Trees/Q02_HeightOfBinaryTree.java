@@ -8,9 +8,7 @@ public class Q02_HeightOfBinaryTree {
 
     public static int getHeight(Node root){
         if (root == null) return -1;
-        int leftHeight = getHeight(root.left);
-        int rightHeight = getHeight(root.right);
-        return Math.max(leftHeight, rightHeight) + 1;
+        return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
     }
 
     public static int getHeight2(Node root){
