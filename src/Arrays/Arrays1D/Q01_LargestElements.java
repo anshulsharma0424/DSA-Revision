@@ -1,4 +1,4 @@
-package Arrays;
+package Arrays.Arrays1D;
 
 public class Q01_LargestElements {
 
